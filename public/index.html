@@ -45,17 +45,16 @@
 
 <script>
     const slide_sound = document.createElement ("audio")
-        slide_sound.src = "sounds/Glitch.mp3"
-
+    slide_sound.src = "sounds/Glitch.mp3"
+    
     const circle_element = document.getElementById ("circle_id")
-        circle_element.onpointerover = () => {
+    circle_element.onpointerover = () => {
         circle_element.src = "img/hex.png"
-   }
-   circle_element.onpointerout = () => {
+    }
+    circle_element.onpointerout = () => {
         circle_element.src = "img/cir.png"
-   }
-   circle_element.onpointerdown = () => {
+    }
+    circle_element.onpointerdown = () => {
         slide_sound.play ()
-   }
-
+    }
 </script>
