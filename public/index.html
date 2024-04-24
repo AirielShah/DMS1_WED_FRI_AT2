@@ -23,8 +23,8 @@
 
         <div class="row">
             <div class="image-container"><img id="circle_id" src="img/cir.png" height="200" width="200"/></div>
-            <div class="image-container"><img src="img/tri.png" height="200" width="200"/></div>
-            <div class="image-container"><img src="img/squ.png" height="200" width="200"/></div>
+            <div class="image-container"><img id="tri_id" src="img/tri.png" height="200" width="200"/></div>
+            <div class="image-container"><img id="squ_id" src="img/squ.png" height="200" width="200"/></div>
         </div>
 
         <div class="row">
@@ -44,17 +44,36 @@
 </html>
 
 <script>
+    // interaction for icon 1
     const slide_sound = document.createElement ("audio")
     slide_sound.src = "sounds/Spring.mp3"
     
     const circle_element = document.getElementById ("circle_id")
-    circle_element.onpointerover = () => {
-        circle_element.src = "img/hex.png"
-    }
-    circle_element.onpointerout = () => {
-        circle_element.src = "img/cir.png"
-    }
     circle_element.onpointerdown = () => {
+        circle_element.src = "img/hex.png"
         slide_sound.play ()
+        setTimeout (() => { circle_element.src = "img/cir.png" }, 2000)
+    }
+
+    // interaction for icon 2
+    const slide_sound = document.createElement ("audio")
+    slide_sound.src = "sounds/BirdsChipping.mp3"
+    
+    const triangle_element = document.getElementById ("tri_id")
+    triangle_element.onpointerdown = () => {
+        triangle_element.src = "img/rec.png"
+        slide_sound.play ()
+        setTimeout (() => { triangle_element.src = "img/tri.png" }, 2000)
+    }
+
+    // interaction for icon 3
+    const slide_sound = document.createElement ("audio")
+    slide_sound.src = "sounds/StairStep.mp3"
+    
+    const square_element = document.getElementById ("squ_id")
+    square_element.onpointerdown = () => {
+        square_element.src = "img/sta.png"
+        slide_sound.play ()
+        setTimeout (() => { square_element.src = "img/squ.png" }, 2000)
     }
 </script>
