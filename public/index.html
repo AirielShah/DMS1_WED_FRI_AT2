@@ -22,7 +22,7 @@
     <body>
 
         <div class="row">
-            <div class="image-container"><img src="img/cir.png" height="200" width="200"/></div>
+            <div class="image-container"><img id="cir_id" src="img/cir.png" height="200" width="200"/></div>
             <div class="image-container"><img src="img/tri.png" height="200" width="200"/></div>
             <div class="image-container"><img src="img/squ.png" height="200" width="200"/></div>
         </div>
@@ -42,3 +42,8 @@
     </body>
     
 </html>
+
+<script>
+    const circle_element = document.getElementById ("cir_id")
+    console.dir (circle_element)
+</script>
