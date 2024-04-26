@@ -4,9 +4,6 @@
     <head>
     <title>Icon Template Square</title>
         <style>
-            body {
-                background-color: rgb(128, 213, 189);
-            }
             .row{
                 width:720px;
                 margin: 10px auto 10px auto ;
@@ -20,60 +17,40 @@
     </head>
 
     <body>
-
         <div class="row">
-            <div class="image-container"><img id="circle_id" src="img/cir.png" height="200" width="200"/></div>
-            <div class="image-container"><img id="tri_id" src="img/tri.png" height="200" width="200"/></div>
-            <div class="image-container"><img id="squ_id" src="img/squ.png" height="200" width="200"/></div>
+            <div class="image-container"><img src="images/original/0.png" height="200" width="200"/></div>
+            <div class="image-container"><img src="images/original/1.png" height="200" width="200"/></div>
+            <div class="image-container"><img src="images/original/2.png" height="200" width="200"/></div>
         </div>
 
         <div class="row">
-            <div class="image-container"><img src="img/hex.png" height="200" width="200"/></div>
-            <div class="image-container"><img src="img/rec.png" height="200" width="200"/></div>
-            <div class="image-container"><img src="img/sta.png" height="200" width="200"/></div>
+            <div class="image-container"><img src="images/original/3.png" height="200" width="200"/></div>
+            <div class="image-container"><img src="images/original/4.png" height="200" width="200"/></div>
+            <div class="image-container"><img src="images/original/5.png" height="200" width="200"/></div>
             </div>
 
         <div class="row">
-            <div class="image-container"><img src="img/trr.png" height="200" width="200"/></div>
-            <div class="image-container"><img src="img/sqr.png" height="200" width="200"/></div>
-            <div class="image-container"><img src="img/her.png" height="200" width="200"/></div>
+            <div class="image-container"><img src="images/original/6.png" height="200" width="200"/></div>
+            <div class="image-container"><img src="images/original/7.png" height="200" width="200"/></div>
+            <div class="image-container"><img src="images/original/8.png" height="200" width="200"/></div>
         </div>
-        
     </body>
-    
 </html>
 
 <script>
-    // interaction for icon 1
-    const slide_sound = document.createElement ("audio")
-    slide_sound.src = "sounds/Spring.mp3"
-    
-    const circle_element = document.getElementById ("circle_id")
-    circle_element.onpointerdown = () => {
-        circle_element.src = "img/hex.png"
-        slide_sound.play ()
-        setTimeout (() => { circle_element.src = "img/cir.png" }, 2000)
-    }
 
-    // interaction for icon 2
-    const slide_sound = document.createElement ("audio")
-    slide_sound.src = "sounds/BirdsChipping.mp3"
-    
-    const triangle_element = document.getElementById ("tri_id")
-    triangle_element.onpointerdown = () => {
-        triangle_element.src = "img/rec.png"
-        slide_sound.play ()
-        setTimeout (() => { triangle_element.src = "img/tri.png" }, 2000)
-    }
+    document.body.style.backgroundColor = `tomato`
+    // document.body.style.backgroundColor = `hsl(180, 50%, 50%)`
 
-    // interaction for icon 3
-    const slide_sound = document.createElement ("audio")
-    slide_sound.src = "sounds/StairStep.mp3"
-    
-    const square_element = document.getElementById ("squ_id")
-    square_element.onpointerdown = () => {
-        square_element.src = "img/sta.png"
-        slide_sound.play ()
-        setTimeout (() => { square_element.src = "img/squ.png" }, 2000)
-    }
+    const icon_elements = Array.from (document.getElementsByTagName (`img`))
+    icon_elements.forEach ((element, index) => {
+        const audio = new Audio (`sounds/${ index }.mp3`)
+        element.onpointerover = () => {
+            element.src = `images/changed/${ index }.png`
+        }
+        element.onpointerleave = () => {
+            element.src = `images/original/${ index }.png`
+        }
+        element.onpointerdown = () => audio.play ()
+    })
 </script>
